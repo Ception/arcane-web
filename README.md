@@ -8,10 +8,11 @@ code -r arcane-web
 ```
 
 # How to build project and open in browser locally
-# Open browser with "localhost:[whatever-port-it-gives-you]
 ```
 cd arcane-web
 dotnet run
+
+"URL: localhost:[whatever-port-it-gives-you]"
 ```
 
 # Creating future additional Razor / .NET pages
