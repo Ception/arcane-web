@@ -1,25 +1,13 @@
 # Arcane Web
-This webapp is built with .NET Core and Razor Pages.
+This webapp is built in GO.
 
-# How to run in VSCode
+# How to run in VSCode or Command Line
 ```
-cd arcane-web
-code -r arcane-web
-```
-
-# How to build project and open in browser locally
-```
-cd arcane-web
-dotnet run
-
-"URL: localhost:[whatever-port-it-gives-you]"
+go run [class.go] to run single file.
+go run [.] to run all dependancies / files required.
 ```
 
-# Creating future additional Razor / .NET pages
+# Build & Run app
 ```
-cd [path-to-your-local-repo-folder]
-dotnet new webapp -o [project-name]
-code -r [project-name]
+go build [.] && run [.]
 ```
-
-After running this, it will run the HTTPS version on port 5001, and the HTTP version on 5000.
