@@ -6,11 +6,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", handlerFunc)
+	http.HandleFunc("/", indexHandler)
+	fmt.Print("Listening...")
 
 	http.ListenAndServe(":80", nil)
 }
 
-func handlerFunc(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Placeholder for template to come! Page Requested :: %s</h1>\n", r.URL.Path)
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "<h1>Placeholder for template to come!</h1>")
 }

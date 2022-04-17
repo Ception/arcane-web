@@ -11,3 +11,9 @@ go run [.] to run all dependancies / files required.
 ```
 go build [.] && run [.]
 ```
+
+# Add FRESH package for hot/live reloading
+# Start FRESH through terminal in SRC folder - Command: [fresh]
+```
+go get github.com/pilu/fresh@latest
+```
