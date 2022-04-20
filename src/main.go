@@ -7,9 +7,11 @@ import (
 
 func main() {
 	http.HandleFunc("/", indexHandler)
-	fmt.Print("Listening...")
 
-	http.ListenAndServe(":80", nil)
+	fmt.Println("Starting webserver...")
+	go http.ListenAndServe(":80", nil)
+	fmt.Println("Listening on port 80...")
+
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
