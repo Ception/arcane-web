@@ -35,11 +35,19 @@ func (s *AccountStore) Accounts() ([]goarcane.Account, error) {
 	return tt, nil
 }
 
-func (s *AccountStore) CreateAccount(t *goarcane.Account) error {
-	panic("not implemented") // TODO: Implement
+func (s *AccountStore) CreateAccount(a *goarcane.Account) error {
+	err := s.Get(a, `INSERT INTO accounts VALUES ($1, $2, $3, $4) RETURNING *`,
+		a.ID,
+		a.Username,
+		a.Password,
+		a.Email)
+	if err != nil {
+		return fmt.Errorf("[ERROR] Creating Account: %w", err)
+	}
+	return nil
 }
 
-func (s *AccountStore) UpdateAccount(t *goarcane.Account) error {
+func (s *AccountStore) UpdateAccount(a *goarcane.Account) error {
 	panic("not implemented") // TODO: Implement
 }
 
