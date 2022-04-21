@@ -56,5 +56,8 @@ func (s *AccountStore) UpdateAccount(a *goarcane.Account) error {
 }
 
 func (s *AccountStore) DeleteAccount(id int) error {
-	panic("not implemented") // TODO: Implement
+	if _, err := s.Exec(`DELETE FROM accounts WHERE id = $1`, id); err != nil {
+		return fmt.Errorf("[ERROR] Deleting Account: %w", err)
+	}
+	return nil
 }
