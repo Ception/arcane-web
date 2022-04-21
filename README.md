@@ -16,5 +16,5 @@ go build [.] && run [.]
 ```
 go get github.com/pilu/fresh@latest
 
-Start FRESH through terminal in SRC folder - Command: [fresh]
+Start FRESH through terminal in SRC folder where [main.go] is located - Command: [fresh]
 ```
