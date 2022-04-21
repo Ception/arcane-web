@@ -1,4 +1,4 @@
-package web
+package postgresql
 
 import (
 	"fmt"
