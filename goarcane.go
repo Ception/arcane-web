@@ -8,8 +8,8 @@ type Account struct {
 }
 
 type AccountStore interface {
-	User(id int) (Account, error)
-	Users() ([]Account, error)
+	Account(id int) (Account, error)
+	Accounts() ([]Account, error)
 	CreateAccount(t *Account) error
 	UpdateAccount(t *Account) error
 	DeleteAccount(id int) error
