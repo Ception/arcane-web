@@ -27,7 +27,12 @@ func (s *AccountStore) Account(id int) (goarcane.Account, error) {
 }
 
 func (s *AccountStore) Accounts() ([]goarcane.Account, error) {
-	panic("not implemented") // TODO: Implement
+	var tt []goarcane.Account
+	err := s.Select(&tt, `SELECT * FROM accounts`)
+	if err != nil {
+		return []goarcane.Account{}, fmt.Errorf("[ERROR] Getting Accounts: %w", err)
+	}
+	return tt, nil
 }
 
 func (s *AccountStore) CreateAccount(t *goarcane.Account) error {
