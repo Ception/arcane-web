@@ -11,6 +11,6 @@ type AccountStore interface {
 	User(id int) (Account, error)
 	Users() ([]Account, error)
 	CreateAccount(t *Account) error
-	UpdateAccount(t *Thread) error
+	UpdateAccount(t *Account) error
 	DeleteAccount(id int) error
 }
