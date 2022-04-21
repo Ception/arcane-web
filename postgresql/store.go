@@ -2,7 +2,6 @@ package postgresql
 
 import (
 	"fmt"
-	"goarcane"
 
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
@@ -17,10 +16,10 @@ func NewStore(dataSourceName string) (*Store, error) {
 		return nil, fmt.Errorf("[ERROR] Connecting to Database: %w", err)
 	}
 	return &Store{
-		AccountStore: NewAccountStore(db),
+		AccountStore: &AccountStore{DB: db},
 	}, nil
 }
 
 type Store struct {
-	goarcane.AccountStore
+	*AccountStore
 }
