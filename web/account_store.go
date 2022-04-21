@@ -1,6 +1,7 @@
 package web
 
 import (
+	"fmt"
 	"goarcane"
 
 	"github.com/jmoiron/sqlx"
@@ -17,7 +18,12 @@ type AccountStore struct {
 }
 
 func (s *AccountStore) Account(id int) (goarcane.Account, error) {
-	panic("not implemented") // TODO: Implement
+	var t goarcane.Account
+	err := s.Get(&t, `SELECT * FROM accounts WHERE id = $1`, id)
+	if err != nil {
+		return goarcane.Account{}, fmt.Errorf("[ERROR] Getting Account: %w", err)
+	}
+	return t, nil
 }
 
 func (s *AccountStore) Accounts() ([]goarcane.Account, error) {
