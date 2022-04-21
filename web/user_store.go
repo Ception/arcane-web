@@ -2,10 +2,12 @@ package web
 
 import "github.com/jmoiron/sqlx"
 
-func NewUserStore(db *sqlx.DB) *UserStore {
-
+func NewAccountStore(db *sqlx.DB) *AccountStore {
+	return &AccountStore{
+		DB: db,
+	}
 }
 
-type UserStore struct {
+type AccountStore struct {
 	*sqlx.DB
 }
