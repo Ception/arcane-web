@@ -16,5 +16,5 @@ func main() {
 	}
 
 	h := web.NewHandler(store)
-	http.ListenAndServe(":80", h)
+	http.ListenAndServe(":80", h) // 80 default localhost listener port
 }
