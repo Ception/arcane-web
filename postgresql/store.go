@@ -7,7 +7,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func NewStore(dataSourceName string) (*Store, error) {
+func NewAccountStore(dataSourceName string) (*Store, error) {
 	db, err := sqlx.Open("postgres", dataSourceName)
 	if err != nil {
 		return nil, fmt.Errorf("[ERROR] Opening Database: %w", err)
