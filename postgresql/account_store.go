@@ -11,7 +11,7 @@ type AccountStore struct {
 	*sqlx.DB
 }
 
-func (s *AccountStore) Account(id int) (goarcane.Account, error) {
+func (s *AccountStore) GetAccount(id int) (goarcane.Account, error) {
 	var t goarcane.Account
 	if err := s.Get(&t, `SELECT * FROM accounts WHERE id = $1`, id); err != nil {
 		return goarcane.Account{}, fmt.Errorf("[ERROR] Getting Account: %w", err)
@@ -19,7 +19,7 @@ func (s *AccountStore) Account(id int) (goarcane.Account, error) {
 	return t, nil
 }
 
-func (s *AccountStore) Accounts() ([]goarcane.Account, error) {
+func (s *AccountStore) GetAccounts() ([]goarcane.Account, error) {
 	var tt []goarcane.Account
 	if err := s.Select(&tt, `SELECT * FROM accounts`); err != nil {
 		return []goarcane.Account{}, fmt.Errorf("[ERROR] Getting Accounts: %w", err)

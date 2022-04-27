@@ -42,9 +42,11 @@ func (h *Handler) AccountsList() http.HandlerFunc {
 
 	tmpl := template.Must(template.New("").Parse(accountsListHTML))
 	return func(w http.ResponseWriter, r *http.Request) {
-		tt, err := h.store.Accounts()
+		tt, err := h.store.GetAccounts()
 		if err != nil {
+			println("testing")
 			http.Error(w, err.Error(), http.StatusInternalServerError)
+			println("testing")
 			return
 		}
 		tmpl.Execute(w, data{Accounts: tt})
