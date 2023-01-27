@@ -12,6 +12,7 @@ func main() {
 
 	store, err := postgresql.NewAccountStore(psqlInfo)
 	if err != nil {
+		//log.Fatal(err)
 		log.Fatal(err)
 	}
 
